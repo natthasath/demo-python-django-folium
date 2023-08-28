@@ -1,27 +1,30 @@
 from django.db import models
 
 # Create your models here.
-SEMESTER_CHOICES = (
-    ("ทดสอบ", "ทดสอบ"),
-    ("รัฐวิสาหกิจ", "รัฐวิสาหกิจ"),
-)
 
-class location(models.Model):
+class focus(models.Model):
     name = models.CharField(max_length=50)
-    description = models.TextField()
-    type = models.CharField(
-        max_length = 20,
-        choices = SEMESTER_CHOICES,
-        default = '1'
-    )
     latitude = models.FloatField(max_length=20)
     longitude = models.FloatField(max_length=20)
+    show = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
-    
-class type(models.Model):
+
+class group(models.Model):
     name = models.CharField(max_length=50)
+    show = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+class location(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.TextField(blank=True)
+    url = models.URLField(max_length=200, blank=True)
+    group = models.ForeignKey(group, on_delete=models.CASCADE)
+    latitude = models.FloatField(max_length=20)
+    longitude = models.FloatField(max_length=20)
 
     def __str__(self):
         return self.name

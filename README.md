@@ -93,3 +93,11 @@ python manage.py makemigrations -n drop_all_tables module
 5. Clear Cached Files
 6. Check for Dependencies
 7. Test Your Project
+
+### 📝 Note
+
+- https://python-graph-gallery.com/312-add-markers-on-folium-map/
+- https://towardsdatascience.com/how-to-step-up-your-folium-choropleth-map-skills-17cf6de7c6fe
+- https://python-visualization.github.io/folium/quickstart.html
+- https://levelup.gitconnected.com/visualizing-housing-data-with-folium-maps-4718ed3452c2
+- https://www.pluralsight.com/guides/map-visualizations-in-python-using-folium

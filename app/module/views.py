@@ -23,8 +23,9 @@ def show(request):
     # Show all locations
     data = location.objects.filter(group=1)
     for x in data:
-        point = (x.latitude, x.longitude)
-        folium.Marker(location=[x.latitude, x.longitude], popup=folium.Popup(x.description, max_width=400,min_width=300), tooltip=x.name).add_to(map)
+        folium.Marker(location=[x.latitude, x.longitude], popup=folium.Popup(x.description, max_width=400,min_width=300), tooltip=folium.Tooltip(permanent=True, text=x.name)).add_to(map)
+        # folium.Marker(location=[x.latitude, x.longitude], popup=folium.Popup(x.description, max_width=400,min_width=300), tooltip=x.name).add_to(map)
+        # folium.Marker(location=[x.latitude, x.longitude], popup=folium.Popup(x.description, max_width=400,min_width=300), tooltip='<h1>'+x.name+'</h1>').add_to(map)
 
     # Tile Layer
     folium.raster_layers.TileLayer('Stamen Terrain').add_to(map)

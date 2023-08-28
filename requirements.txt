@@ -1,2 +1,4 @@
 django
 folium
+django-sslserver
+python-decouple
